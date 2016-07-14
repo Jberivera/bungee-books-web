@@ -1,10 +1,7 @@
-import countReducer from './count-reducer';
-import toDosReducer from './todo-reducer';
-import { combineReducers } from 'redux';
+import count from './count-reducer';
+import toDos from './todo-reducer';
 
-const bungeBooksReducer = combineReducers({
-  count: countReducer,
-  toDos: toDosReducer
-});
-
-export default bungeBooksReducer;
+export default {
+  count,
+  toDos
+};

@@ -11,67 +11,41 @@ import classNames from 'classNames/bind';
 
 const css = classNames.bind(style);
 
-// class App extends Component {
-//
-//   constructor(props) {
-//     super(props);
-//
-//     this.saludar = this.saludar.bind(this);
-//   }
-//
-//   saludar (e) {
-//     console.log(this.props.saludo);
-//   }
-//
-//   render () {
-//     return (
-//       <div className={ style.app + ' ' + style['app-coso'] }>
-//         <p className={ css('app', 'app-coso') } onClick={ this.saludar } >Hola Mundo</p>
-        // <ul>
-        //   {
-        //     this.props.toDos.map((todo) => {
-        //       return <li>{todo}</li>
-        //     })
-        //   }
-        // </ul>
-//
-//         {this.props.children}
-//       </div>
-//     );
-//   }
-// }
+class App extends Component {
+  constructor (props) {
+    super(props);
 
-function App ({ saludo, toDos, children, count, increment, decrement }) {
-
-  function saludar() {
-    console.log(saludo);
+    this.onClick = this.onClick.bind(this);
+    this.stopDecrement = this.stopDecrement.bind(this);
   }
 
-  function onClick(e) {
-    increment();
-  }
-  function stopDecrement(e){
-    if(count <= 0 ) {
-      return;
-    } else {
-      decrement();
-    }
+  onClick (e) {
+    this.props.increment();
   }
 
-  return (
-    <div className={ style.app + ' ' + style['app-coso'] }>
-      <p className={ css('app', 'app-coso') } onClick={ onClick } >Hola Mundo {count}</p>
-      <button onClick={stopDecrement}> {count} </button>
-      <ul>
-        {
-          toDos.map((todo, i) => {
-            return <li key={i}>{todo}</li>
-          })
-        }
-      </ul>
-      { children }
-    </div>
-  );
+  stopDecrement (e) {
+    if(this.props.count <= 0 ) return;
+    this.props.decrement();
+  }
+
+  render () {
+    const { saludo, toDos, children, count, increment, decrement } = this.props;
+
+    return (
+      <div className={ style.app + ' ' + style['app-coso'] }>
+        <p className={ css('app', 'app-coso') } onClick={ this.onClick } >Hola Mundo {count}</p>
+        <button onClick={ this.stopDecrement }> {count} </button>
+        <ul>
+          {
+            toDos.map((todo, i) => {
+              return <li key={i}>{todo}</li>
+            })
+          }
+        </ul>
+        { children }
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state, ownState) {
