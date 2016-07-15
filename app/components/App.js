@@ -32,7 +32,7 @@ class App extends Component {
     const { saludo, toDos, children, count, increment, decrement } = this.props;
 
     return (
-      <div className={ style.app + ' ' + style['app-coso'] }>
+      <div>
         <p className={ css('app', 'app-coso') } onClick={ this.onClick } >Hola Mundo {count}</p>
         <button onClick={ this.stopDecrement }> {count} </button>
         <ul>

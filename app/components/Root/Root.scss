@@ -1,0 +1,5 @@
+@import '../../scss/variables';
+
+.container {
+  min-height: calc(100% - #{$footer-height + $nav-height});
+}
