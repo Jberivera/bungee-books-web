@@ -1,0 +1,42 @@
+@import './scss/variables';
+
+*, *:before, *:after {
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+html, body, :global(.app), :global(.main-container) {
+  position: relative;
+  height: 100%;
+}
+
+.app {
+  background: blue;
+}
+
+.app-coso {
+  color: white;
+}
+
+:global .coso {
+  font-size: 50px;
+}
+
+:global .nav {
+  height: $nav-height;
+  background: grey;
+}
+
+:global .footer {
+  height: $footer-height;
+  background: #555;
+}

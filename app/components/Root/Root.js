@@ -12,7 +12,9 @@ const Root = ({ children }) => {
   return (
     <div className="main-container">
       <Nav />
-      { children }
+      <div className={ css('container') }>
+        { children }
+      </div>
       <Footer />
     </div>
   );

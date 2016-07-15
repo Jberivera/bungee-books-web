@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './main.scss';
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import createLogger from 'redux-logger';
@@ -31,7 +33,7 @@ ReactDOM.render(
 <Provider store={store}>
   <Router history={history}>
     <Route path="/" component={Root}>
-      <Route path="/hola" component={App}></Route>
+      <Route path="/app" component={App}></Route>
     </Route>
   </Router>
 </Provider>, document.querySelector('#app'));
